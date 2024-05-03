@@ -11,9 +11,7 @@
 .container {
   max-width: 90%;
   margin: auto;
-  
 
-  
 }
 
 header {
@@ -109,7 +107,7 @@ ul {
 
 /* !!!!!!!!!!buttons ui */
 .cont-buttons{
-  width: 300px;
+  max-width: 300px;
   display: flex;
   gap: 50px;
 
@@ -187,6 +185,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   /* background-color: #183B56; */
 
 }
@@ -495,5 +494,310 @@ color: white
 
 .foot-para p .bg11{
   color: #183B56;
+
+}
+
+
+/* Styles for screens smaller than 768px (typical mobile devices) */
+@media only screen and  (min-width: 0px) and (max-width:750px) {
+  /* Add your mobile styles here */
+
+.name-email{
+  display: flex;
+  flex-direction: column;
+}
+  .card {
+   
+    border-radius: 15px;
+    padding: 10px 50px;
+    /* width: 300px; */
+
+  }
+  
+ 
+.footer{
+  background-color: #FF8345;
+
+}
+
+.foot-para{
+  display: none;
+}
+
+  .header-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  flex-shrink: calc(1);
+  
+  }
+
+  .cont-buttons{
+
+ 
+      width: 300px;
+      display: flex;
+      gap: 0px;
+      overflow: hidden;
+  
+
+  }
+
+.header-flex img{
+  max-width: 100%;
+  height: auto;
+}
+  .btn-secondary,.btn-primary {
+   display: none;
+}
+ .feedback-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 50px;
+    row-gap: 40px;
+    width: 100%; /* Takes up 100% of the parent container's width */
+    /* display: none; */
+}
+.desc-display {
+  font-size: 14px;
+  font-weight: 400px;
+  color: #9FABB4;
+  margin-bottom: 20px;
+}
+.card h2 {
+  font-size: 18px;
+  font-weight: 700px !important;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #183B56;
+  /* text-align: center; */
+}
+.name-email {
+  display: flex;
+  gap: 25px;
+  margin-top: 15px;
+}
+.name-email > .name-primary,.name-secondary {
+  background-color: #EAEEEC;
+  color: #838A96;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+
+}
+.name-secondary{
+  margin-bottom: 20px;
+}
+.hero-container{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+
+}
+
+.hero-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.hero-image img{
+  width: 100%;
+}
+.Formcard{
+  width: 100%;
+  background-color: white;
+  padding: 40px 50px;
+  border-radius: 15px;
+
+}
+
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 40px;
+  margin-bottom: 100px;
+  /* display: none; */
+}
+
+.rating li,
+.num-display {
+  position: relative;
+  background: #797979;
+  padding: 10px;
+  text-align: center;
+  font-size: 19px;
+  border: 1px #eee solid;
+  transition: 0.3s;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+
+}
+.rating li span {
+  font-size: 8px;
+  position: relative;
+  top: 45px;
+  display: flex;
+  width: 100px;
+  top: 20px;
+  left: -10px;
+  color: #183B56;
+}
+.container {
+ width: 100%;
+  
+}
+.close, .edit {
+/* display: none; */
+  top: 15px;
+ 
+}
+
+.line{
+ display: none;
+}
+
+.rating>li:last-child .line{
+ display: none;
+}
+
+.rating>li:nth-child(3){
+  display: none;
+ }
+.num-display {
+  position: absolute;
+  background: #FF8345;
+  /* color: #333333; */
+}
+
+}
+
+/* Styles for screens between 768px and 949px */
+@media only screen and (min-width: 750px) and (max-width: 949px) {
+  /* Add your styles here */
+
+  .feedback-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 50px;
+      row-gap: 40px;
+  }
+
+
+
+
+.hero-container{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+
+}
+
+.hero-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.hero-image img{
+  width: 100%;
+}
+.Formcard{
+  width: 100%;
+  background-color: white;
+  padding: 40px 50px;
+  border-radius: 15px;
+
+}
+
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 40px;
+  margin-bottom: 100px;
+}
+
+.rating li,
+.num-display {
+  position: relative;
+  background: #797979;
+  padding: 10px;
+  text-align: center;
+  font-size: 19px;
+  border: 1px #eee solid;
+  transition: 0.3s;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.line{
+  position: absolute;
+  top: 50%;
+  width: 120%;
+  height: 2px;
+  background-color: #838A96;
+  left: 150%;
+}
+
+.rating>li:last-child .line{
+ display: none;
+}
+.num-display {
+  position: absolute;
+  background: #FF8345;
+  /* color: #333333; */
+}
+
+}
+
+
+
+
+
+/* Styles for screens between 950px and 1250px */
+@media only screen and (min-width: 950px) and (max-width: 1250px) {
+ 
+
+
+  .feedback-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 50px;
+    row-gap: 30px;
+    column-gap: 25px;
+}
+
+.card {
+  
+  margin: 0 0;
+  
+}
+
+.line{
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: 2px;
+  background-color: #838A96;
+  left: 120%;
+}
+
+.rating>li:last-child .line{
+ display: none;
+}
 
 }

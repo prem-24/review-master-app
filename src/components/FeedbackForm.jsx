@@ -1,3 +1,6 @@
+
+
+
 import React, { useContext, useState, useEffect } from "react";
 // import Card from './shared/Card'
 import Button from "./shared/Button";
@@ -10,7 +13,9 @@ import hero from "./images/hero.png";
 const FeedbackForm = () => {
   const { addFeedback, feedbackEdit, updateFeedback } =
     useContext(FeedbackContext);
-
+    // console.log(addFeedback)
+    // console.log(feedbackEdit)
+    // console.log(updateFeedback)
   const [text, setText] = useState("");
   const [rating, setRating] = useState(1);
   const [desc, setDesc] = useState("");
@@ -60,7 +65,7 @@ const FeedbackForm = () => {
       };
 
       if (feedbackEdit.edit === true) {
-        updateFeedback(feedbackEdit.item.id, newFeedback);
+        updateFeedback(feedbackEdit.item._id, newFeedback);
       } else {
         // handleAdd(newFeedback);
         addFeedback(newFeedback);

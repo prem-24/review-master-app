@@ -13,9 +13,11 @@ export const FeedbackProvider = ({ children }) => {
 
   // Consistent indentation and spacing for readability
   const fetchFeedback = async () => {
-    const response = await fetch("http://localhost:5001/Feedback");
+    const response = await fetch("https://review-master-backend.onrender.com/review");
     const data = await response.json();
     setFeedback(data);
+
+    console.log(data)
     setIsLoading(false);
   };
 
@@ -25,7 +27,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const addFeedback = async (newFeedback) => {
-    const response = await fetch("http://localhost:5001/Feedback", {
+    const response = await fetch("https://review-master-backend.onrender.com/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,22 +35,33 @@ export const FeedbackProvider = ({ children }) => {
       body: JSON.stringify(newFeedback),
     });
     const data = await response.json();
-    console.log(data);
-    setFeedback([data, ...feedback]);
+    console.log(data.review); // Assuming data contains the new feedback object
+    setFeedback([...feedback, data.review]); // Append the new feedback object to the existing feedback state array
   };
+  
 
   const deleteFeedback = async (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      const response = await fetch(`http://localhost:5001/Feedback/${id}`, {
-        method: "DELETE",
-      });
-      await response.json();
-      setFeedback(feedback.filter((item) => item.id !== id));
+      try {
+        const response = await fetch(`https://review-master-backend.onrender.com/review/${id}`, {
+          method: "DELETE",
+        });
+        if (response.ok) {
+          // If the deletion was successful, update the feedback state
+          setFeedback(feedback.filter((item) => item._id !== id));
+          console.log("Feedback deleted successfully");
+        } else {
+          console.error("Failed to delete feedback");
+        }
+      } catch (error) {
+        console.error("An error occurred while deleting feedback:", error);
+      }
     }
   };
+  
 
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`http://localhost:5001/Feedback/${id}`, {
+    const response = await fetch(`https://review-master-backend.onrender.com/review/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -56,11 +69,11 @@ export const FeedbackProvider = ({ children }) => {
       body: JSON.stringify(updItem),
     });
     const data = await response.json();
-    setFeedback(
-      feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
-    );
+    console.log(data);
+    // Update the feedback state based on the response data
+    setFeedback(feedback.map(item => item._id === id ? { ...item, ...updItem } : item));
   };
-
+  
   const editFeedback = (item) => {
     setFeedbackEdit({
       item,

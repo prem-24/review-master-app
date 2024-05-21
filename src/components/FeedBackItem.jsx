@@ -27,7 +27,7 @@ const FeedBackItem = ({ item }) => {
            <span className="name-secondary">{item.email}</span>
         </div>
      
-       <button className="close" onClick={() => deleteFeedback(item.id)}>
+       <button className="close" onClick={() => deleteFeedback(item._id)}>
           <FaTimes />
         </button>
         <button className="edit" onClick={() => editFeedback(item)}>
